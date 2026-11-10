@@ -9,9 +9,9 @@ import torchvision.transforms.functional as TF
 LEVELS = (1, 2, 3, 4, 5)
 
 # Paramètres par niveau (à ajuster après observation visuelle)
-BLUR_SIGMA   = (0.5, 1.0, 1.5, 2.5, 4.0)
-NOISE_STD    = (0.02, 0.05, 0.08, 0.12, 0.18)
-HAZE_T       = (0.9, 0.8, 0.7, 0.55, 0.4)    # transmission : plus petit = plus de brume
+BLUR_SIGMA   = (0.5, 1.0, 1.5, 2.0, 2.75)
+NOISE_STD    = (0.004, 0.008, 0.012, 0.02, 0.03)
+HAZE_T       = (0.9, 0.8, 0.7, 0.55, 0.4)
 BRIGHT_DELTA = (0.1, 0.2, 0.3, 0.4, 0.5)
 
 

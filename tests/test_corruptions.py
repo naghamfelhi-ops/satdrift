@@ -32,3 +32,14 @@ def test_monotonic_distortion(name, img):
 def test_invalid_severity(img):
     with pytest.raises(ValueError):
         CORRUPTIONS["blur"](img, 9)
+
+def test_batch_input(img):
+    batch = torch.stack([img, img])
+    for name, fn in CORRUPTIONS.items():
+        assert fn(batch, 3).shape == batch.shape
+
+
+def test_noise_differs_between_images(img):
+    """Deux images identiques dans un lot doivent recevoir un bruit différent."""
+    out = CORRUPTIONS["noise"](torch.stack([img, img]), 3)
+    assert not torch.equal(out[0], out[1])
